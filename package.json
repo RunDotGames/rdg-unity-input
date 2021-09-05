@@ -1,0 +1,15 @@
+{
+    "name": "com.rundotgames.unityinput",
+    "displayName": "RDG Unity Input",
+    "author": {
+        "name": "Run Dot Games",
+        "email": "mark.mayer@rundotgames.com",
+        "url": "https://www.rundotgames.com"
+    },
+    "keywords": [
+        "input"
+    ],
+    "version": "1.0.0",
+    "unity": "2020.3",
+    "description": "Yet Another Unity Input Framework"
+}

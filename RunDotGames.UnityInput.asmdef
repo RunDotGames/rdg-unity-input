@@ -1,0 +1,14 @@
+{
+    "name": "RunDotGames.UnityInput",
+    "rootNamespace": "RDG.UnityInput",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
