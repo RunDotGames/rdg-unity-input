@@ -9,6 +9,7 @@ namespace RDG.UnityInput {
     void Release();
   }
 
+  [AddComponentMenu("RDG/Input/Gesture Producer")]
   public class GestureProducerBeh : MonoBehaviour {
     private static readonly HashSet<RuntimePlatform> MousePlatforms = new HashSet<RuntimePlatform>{
       RuntimePlatform.WindowsEditor,

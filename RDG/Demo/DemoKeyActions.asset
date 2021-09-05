@@ -22,3 +22,6 @@ MonoBehaviour:
   - action: 4
     key: 0
     mouseButton: 0
+  - action: 5
+    key: 0
+    mouseButton: 1

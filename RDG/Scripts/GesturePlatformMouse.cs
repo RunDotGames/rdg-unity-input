@@ -40,6 +40,7 @@ namespace RDG.UnityInput {
         private readonly GestureState state;
         private readonly Camera camera;
         private readonly EventSystem eventSystem;
+        private readonly bool hasEventSystem;
         
         private MouseGestureState currentState = MouseGestureState.Up;
         private Vector3 downStartPosition;
@@ -51,6 +52,7 @@ namespace RDG.UnityInput {
             this.state = state;
             this.camera = camera;
             this.eventSystem = eventSystem;
+            hasEventSystem = eventSystem != null;
         }
         
         public void Release(){}
@@ -91,7 +93,7 @@ namespace RDG.UnityInput {
                 return;
             }
             
-            if (eventSystem.IsPointerOverGameObject()) {
+            if (hasEventSystem && eventSystem.IsPointerOverGameObject()) {
                 return;
             }
 

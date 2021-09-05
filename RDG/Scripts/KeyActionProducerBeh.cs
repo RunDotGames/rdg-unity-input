@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace RDG.UnityInput {
 
+  [AddComponentMenu("RDG/Input/Key Action Producer")]
   public class KeyActionProducerBeh : MonoBehaviour {
 
     public KeyActionsSo keyBindings;
