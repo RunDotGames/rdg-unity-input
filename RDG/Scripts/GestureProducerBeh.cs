@@ -28,10 +28,6 @@ namespace RDG.UnityInput {
 
     public void Start() {
       currentAction = GestureAction.Idle;
-      if (Camera.main == null) {
-        throw new Exception("no camera in scene, cannot gesture");
-      }
-
       State = new GestureState(){
         Zoom = new GestureZoomState(),
         Drag = new GestureDragState(),
@@ -40,12 +36,12 @@ namespace RDG.UnityInput {
       };
 
       if (MousePlatforms.Contains(Application.platform)) {
-        platform = new GesturePlatformMouse(gestures.config.mouse, State, Camera.main, eventSystem);
+        platform = new GesturePlatformMouse(gestures.config.mouse, State, eventSystem);
         State.PlatformName = "Mouse";
         return;
       }
 
-      platform = new GesturePlatformTouch(State, Camera.main, gestures.config.touch);
+      platform = new GesturePlatformTouch(State, gestures.config.touch);
       State.PlatformName = "Touch";
 
     }

@@ -38,7 +38,7 @@ namespace RDG.UnityInput {
 
         private readonly GesturePlatformMouseConfig config;
         private readonly GestureState state;
-        private readonly Camera camera;
+        private Camera camera;
         private readonly EventSystem eventSystem;
         private readonly bool hasEventSystem;
         
@@ -46,11 +46,10 @@ namespace RDG.UnityInput {
         private Vector3 downStartPosition;
         private float zoomLastScrollTime;
 
-        public GesturePlatformMouse(GesturePlatformMouseConfig config, GestureState state, Camera camera,
+        public GesturePlatformMouse(GesturePlatformMouseConfig config, GestureState state,
             EventSystem eventSystem) {
             this.config = config;
             this.state = state;
-            this.camera = camera;
             this.eventSystem = eventSystem;
             hasEventSystem = eventSystem != null;
         }
@@ -112,6 +111,7 @@ namespace RDG.UnityInput {
         }
 
         public void Update() {
+            camera = Camera.main;
             UpdateDown();
             UpdateUp();
             var scrollDelta = Input.mouseScrollDelta.y;

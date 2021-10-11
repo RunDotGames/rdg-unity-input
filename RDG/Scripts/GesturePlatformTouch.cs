@@ -12,16 +12,15 @@ namespace RDG.UnityInput {
     internal class GesturePlatformTouch : GesturePlatform {
 
         private readonly GestureState state;
-        private readonly Camera camera;
         private readonly TouchGesture[] touches ={
             new TouchGesture(), new TouchGesture()
         };
-
         private readonly GesturePlatformTouchConfig config;
+        
+        private Camera camera;
 
-        public GesturePlatformTouch(GestureState state, Camera camera, GesturePlatformTouchConfig config) {
+        public GesturePlatformTouch(GestureState state, GesturePlatformTouchConfig config) {
             this.state = state;
-            this.camera = camera;
             this.config = config;
         }
 
@@ -140,6 +139,7 @@ namespace RDG.UnityInput {
         }
 
         public void Update() {
+            camera = Camera.main;
             if (Input.touchCount == 0) {
                 state.Action = GestureAction.Idle;
                 return;
