@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RDG.UnityInput {
   public class KeyActionFilter {
-    private readonly KeyActionsSo bindings;
+    private readonly KeyActionsRegistrySo bindings;
 
-    public event Action<KeyAction> OnUp;
-    public event Action<KeyAction> OnDown;
+    public event Action<KeyActionSo> OnUp;
+    public event Action<KeyActionSo> OnDown;
 
-    private readonly HashSet<KeyAction> allowSet;
+    private readonly HashSet<int> allowSet;
     
-    public KeyActionFilter(KeyActionsSo bindings, IEnumerable<KeyAction> allow) {
+    public KeyActionFilter(KeyActionsRegistrySo bindings, IEnumerable<KeyActionSo> allow) {
       this.bindings = bindings;
       bindings.OnDown += HandleDown;
       bindings.OnUp += HandleUp;
-      allowSet = new HashSet<KeyAction>(allow);
+      allowSet = new HashSet<int>(allow.Select(a => a.GetHashCode()));
     }
     
     public void Release() {
@@ -23,16 +24,16 @@ namespace RDG.UnityInput {
       bindings.OnDown -= HandleDown;
       bindings.OnUp -= HandleUp;
     }
-    private void HandleDown(KeyAction action) {
-      if (!allowSet.Contains(action)) {
+    private void HandleDown(KeyActionSo action) {
+      if (!allowSet.Contains(action.GetHashCode())) {
         return;
       }
       
       OnDown?.Invoke(action);
     }
 
-    private void HandleUp(KeyAction action) {
-      if (!allowSet.Contains(action)) {
+    private void HandleUp(KeyActionSo action) {
+      if (!allowSet.Contains(action.GetHashCode())) {
         return;
       }
       

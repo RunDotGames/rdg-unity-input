@@ -4,7 +4,11 @@ using UnityEngine.UI;
 
 namespace RDG.UnityInput {
   public class InputKeyActionDemoBeh : MonoBehaviour {
-    public KeyActionsSo bindings;
+    public KeyActionsRegistrySo bindings;
+    public KeyActionSo interact;
+    public KeyActionSo moveLeft;
+    public KeyActionSo moveRight;
+    
     public Text movementDisplay;
     public Text interactDisplay;
 
@@ -13,18 +17,18 @@ namespace RDG.UnityInput {
     
     public void Start() {
       interactFilter = new KeyActionFilter(bindings, new[]{
-        KeyAction.Interact
+        interact
       });
       interactFilter.OnUp += HandleUp;
       interactFilter.OnDown += HandleDown;
       
       movementStack = new KeyActionStack(bindings, new[]{
-        KeyAction.MoveLeft, KeyAction.MoveRight
+        moveLeft, moveRight
       });
       movementStack.OnStackChange += HandleMovementChange;
       
-      HandleUp(KeyAction.Interact);
-      HandleMovementChange(new KeyActionStack.State{Size = 0, Top = KeyAction.None});
+      HandleUp(interact);
+      HandleMovementChange(new KeyActionStack.State{Size = 0, Top = null});
     }
 
     public void OnDestroy() {
@@ -32,21 +36,21 @@ namespace RDG.UnityInput {
       interactFilter.Release();
     }
 
-    private void HandleUp(KeyAction action) {
+    private void HandleUp(KeyActionSo action) {
       interactDisplay.text = "Not Interacting";
     }
 
-    private void HandleDown(KeyAction action) {
+    private void HandleDown(KeyActionSo action) {
       interactDisplay.text = "Interacting";
     }
 
     private void HandleMovementChange(KeyActionStack.State state) {
-      if (state.Top == KeyAction.None || state.Size > 1) {
+      if (state.Top == null || state.Size > 1) {
         movementDisplay.text = "Not Moving";
         return;
       }
       
-      movementDisplay.text = "Movement: " + state.Top;
+      movementDisplay.text = "Movement: " +  ((state.Top == moveLeft) ? "Left" : "Right");
     }
 
   }

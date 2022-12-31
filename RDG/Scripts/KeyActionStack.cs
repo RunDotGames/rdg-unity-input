@@ -2,15 +2,16 @@ using System.Collections.Generic;
 using System;
 using System.Collections;
 using System.Diagnostics;
+using System.Linq;
 
 namespace RDG.UnityInput {
 
   internal class InputPressEvent {
-    public readonly KeyAction KeyAction;
+    public readonly KeyActionSo KeyAction;
     public bool IsPressed;
     public long At;
 
-    public InputPressEvent(KeyAction keyAction) {
+    public InputPressEvent(KeyActionSo keyAction) {
       KeyAction = keyAction;
       At = long.MinValue;
     }
@@ -30,41 +31,40 @@ namespace RDG.UnityInput {
     
     public class State {
       public int Size;
-      public KeyAction Top;
+      public KeyActionSo Top;
 
     }
 
     private static readonly InputPressEventComparator Comparer = new InputPressEventComparator();
     
     private readonly List<InputPressEvent> events = new List<InputPressEvent>();
-    private readonly Dictionary<KeyAction, InputPressEvent> eventMap = new Dictionary<KeyAction, InputPressEvent>();
-    private readonly KeyActionsSo bindings;
+    private readonly Dictionary<int, InputPressEvent> eventMap = new Dictionary<int, InputPressEvent>();
+    private readonly KeyActionsRegistrySo bindings;
 
     public event Action<State> OnStackChange;
-    public event Action<KeyAction> OnStackTopChange;
+    public event Action<KeyActionSo> OnStackTopChange;
     public event Action<int> OnStackSizeChange;
 
     
 
-    public KeyActionStack(KeyActionsSo bindings) {
+    public KeyActionStack(KeyActionsRegistrySo bindings) {
       this.bindings = bindings;
-      NewKeyActionStack(Enum.GetValues(typeof(KeyAction)));
+      NewKeyActionStack(bindings.RegisteredBindings.Select(b => b.action));
     }
     
-    public KeyActionStack(KeyActionsSo bindings, KeyAction[] keys) {
+    public KeyActionStack(KeyActionsRegistrySo bindings, IEnumerable<KeyActionSo> keys) {
       this.bindings = bindings;
       NewKeyActionStack(keys);
     }
 
-    private void NewKeyActionStack(IEnumerable keys) {
+    private void NewKeyActionStack(IEnumerable<KeyActionSo> keys) {
       bindings.OnDown += HandleActionDown;
       bindings.OnUp += HandleActionUp;
       StackSize = 0;
       foreach (var value in keys) {
-        var asAction = (KeyAction)value;
-        var keyEvent = new InputPressEvent(asAction);
+        var keyEvent = new InputPressEvent(value);
         events.Add(keyEvent);
-        eventMap[asAction] = keyEvent;
+        eventMap[value.GetHashCode()] = keyEvent;
       }
       
     }
@@ -81,26 +81,26 @@ namespace RDG.UnityInput {
       bindings.OnUp -= HandleActionUp;
     }
 
-    private void HandleActionUp(KeyAction action) {
+    private void HandleActionUp(KeyActionSo action) {
       EvalMostRecent(action, () => {
-        eventMap[action].IsPressed = false;
+        eventMap[action.GetHashCode()].IsPressed = false;
         events.Sort(Comparer);
         StackSize = Math.Max(StackSize - 1, 0);
       });
     }
 
-    private void HandleActionDown(KeyAction action) {
+    private void HandleActionDown(KeyActionSo action) {
       EvalMostRecent(action, () => {
-        eventMap[action].IsPressed = true;
-        eventMap[action].At = Stopwatch.GetTimestamp();
+        eventMap[action.GetHashCode()].IsPressed = true;
+        eventMap[action.GetHashCode()].At = Stopwatch.GetTimestamp();
         events.Sort(Comparer);
         StackSize++;
       });
       
     }
 
-    private void EvalMostRecent(KeyAction action, Action evaluation) {
-      if (!eventMap.ContainsKey(action)) {
+    private void EvalMostRecent(KeyActionSo action, Action evaluation) {
+      if (!eventMap.ContainsKey(action.GetHashCode())) {
         return;
       }
       
@@ -126,10 +126,10 @@ namespace RDG.UnityInput {
 
     }
 
-    public KeyAction GetTop() {
+    public KeyActionSo GetTop() {
       return (events?.Count ?? 0) < 1
-        ? KeyAction.None
-        : ( (events?[0].IsPressed ?? false) ? events[0].KeyAction : KeyAction.None);
+        ? null
+        : ( (events?[0].IsPressed ?? false) ? events[0].KeyAction : null);
     }
     
     public int StackSize { get; private set; }

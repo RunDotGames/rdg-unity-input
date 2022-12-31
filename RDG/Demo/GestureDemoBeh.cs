@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace RDG.UnityInput {
     [Serializable]
     public class GestureDemoBeh : MonoBehaviour {
-        public KeyActionsSo keys;
+        public KeyActionsRegistrySo keys;
         public GesturesSo gesture;
         public GestureProducerBeh producer;
 

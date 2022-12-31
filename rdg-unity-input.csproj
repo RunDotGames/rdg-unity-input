@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{75307501-5D3D-4A7A-8CA6-3C73880AF776}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>rdg_unity_input</RootNamespace>
+        <AssemblyName>rdg_unity_input</AssemblyName>
+        <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml" />
+        <Reference Include="UnityEngine">
+            <HintPath>C:\Program Files\Unity\2021.3.15f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\AxisEventData.cs">
+          <Link>EventSystem\EventData\AxisEventData.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\BaseEventData.cs">
+          <Link>EventSystem\EventData\BaseEventData.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\PointerEventData.cs">
+          <Link>EventSystem\EventData\PointerEventData.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventHandle.cs">
+          <Link>EventSystem\EventHandle.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventInterfaces.cs">
+          <Link>EventSystem\EventInterfaces.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventSystem.cs">
+          <Link>EventSystem\EventSystem.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTrigger.cs">
+          <Link>EventSystem\EventTrigger.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTriggerType.cs">
+          <Link>EventSystem\EventTriggerType.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\ExecuteEvents.cs">
+          <Link>EventSystem\ExecuteEvents.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInput.cs">
+          <Link>EventSystem\InputModules\BaseInput.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInputModule.cs">
+          <Link>EventSystem\InputModules\BaseInputModule.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\PointerInputModule.cs">
+          <Link>EventSystem\InputModules\PointerInputModule.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\StandaloneInputModule.cs">
+          <Link>EventSystem\InputModules\StandaloneInputModule.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\TouchInputModule.cs">
+          <Link>EventSystem\InputModules\TouchInputModule.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\MoveDirection.cs">
+          <Link>EventSystem\MoveDirection.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycasterManager.cs">
+          <Link>EventSystem\RaycasterManager.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\BaseRaycaster.cs">
+          <Link>EventSystem\Raycasters\BaseRaycaster.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\Physics2DRaycaster.cs">
+          <Link>EventSystem\Raycasters\Physics2DRaycaster.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\PhysicsRaycaster.cs">
+          <Link>EventSystem\Raycasters\PhysicsRaycaster.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycastResult.cs">
+          <Link>EventSystem\RaycastResult.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIBehaviour.cs">
+          <Link>EventSystem\UIBehaviour.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIElements\PanelEventHandler.cs">
+          <Link>EventSystem\UIElements\PanelEventHandler.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIElements\PanelRaycaster.cs">
+          <Link>EventSystem\UIElements\PanelRaycaster.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Animation\CoroutineTween.cs">
+          <Link>UI\Animation\CoroutineTween.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\AnimationTriggers.cs">
+          <Link>UI\Core\AnimationTriggers.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Button.cs">
+          <Link>UI\Core\Button.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\CanvasUpdateRegistry.cs">
+          <Link>UI\Core\CanvasUpdateRegistry.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ColorBlock.cs">
+          <Link>UI\Core\ColorBlock.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\ClipperRegistry.cs">
+          <Link>UI\Core\Culling\ClipperRegistry.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\Clipping.cs">
+          <Link>UI\Core\Culling\Clipping.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\IClipRegion.cs">
+          <Link>UI\Core\Culling\IClipRegion.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\RectangularVertexClipper.cs">
+          <Link>UI\Core\Culling\RectangularVertexClipper.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\DefaultControls.cs">
+          <Link>UI\Core\DefaultControls.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Dropdown.cs">
+          <Link>UI\Core\Dropdown.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontData.cs">
+          <Link>UI\Core\FontData.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontUpdateTracker.cs">
+          <Link>UI\Core\FontUpdateTracker.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Graphic.cs">
+          <Link>UI\Core\Graphic.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRaycaster.cs">
+          <Link>UI\Core\GraphicRaycaster.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRebuildTracker.cs">
+          <Link>UI\Core\GraphicRebuildTracker.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRegistry.cs">
+          <Link>UI\Core\GraphicRegistry.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IGraphicEnabledDisabled.cs">
+          <Link>UI\Core\IGraphicEnabledDisabled.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Image.cs">
+          <Link>UI\Core\Image.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMask.cs">
+          <Link>UI\Core\IMask.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMaskable.cs">
+          <Link>UI\Core\IMaskable.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\InputField.cs">
+          <Link>UI\Core\InputField.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\AspectRatioFitter.cs">
+          <Link>UI\Core\Layout\AspectRatioFitter.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs">
+          <Link>UI\Core\Layout\CanvasScaler.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ContentSizeFitter.cs">
+          <Link>UI\Core\Layout\ContentSizeFitter.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\GridLayoutGroup.cs">
+          <Link>UI\Core\Layout\GridLayoutGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalLayoutGroup.cs">
+          <Link>UI\Core\Layout\HorizontalLayoutGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs">
+          <Link>UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ILayoutElement.cs">
+          <Link>UI\Core\Layout\ILayoutElement.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutElement.cs">
+          <Link>UI\Core\Layout\LayoutElement.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutGroup.cs">
+          <Link>UI\Core\Layout\LayoutGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutRebuilder.cs">
+          <Link>UI\Core\Layout\LayoutRebuilder.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutUtility.cs">
+          <Link>UI\Core\Layout\LayoutUtility.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\VerticalLayoutGroup.cs">
+          <Link>UI\Core\Layout\VerticalLayoutGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Mask.cs">
+          <Link>UI\Core\Mask.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskableGraphic.cs">
+          <Link>UI\Core\MaskableGraphic.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskUtilities.cs">
+          <Link>UI\Core\MaskUtilities.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaterialModifiers\IMaterialModifier.cs">
+          <Link>UI\Core\MaterialModifiers\IMaterialModifier.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Misc.cs">
+          <Link>UI\Core\Misc.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MultipleDisplayUtilities.cs">
+          <Link>UI\Core\MultipleDisplayUtilities.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Navigation.cs">
+          <Link>UI\Core\Navigation.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RawImage.cs">
+          <Link>UI\Core\RawImage.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RectMask2D.cs">
+          <Link>UI\Core\RectMask2D.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Scrollbar.cs">
+          <Link>UI\Core\Scrollbar.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ScrollRect.cs">
+          <Link>UI\Core\ScrollRect.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Selectable.cs">
+          <Link>UI\Core\Selectable.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SetPropertyUtility.cs">
+          <Link>UI\Core\SetPropertyUtility.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Slider.cs">
+          <Link>UI\Core\Slider.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpecializedCollections\IndexedSet.cs">
+          <Link>UI\Core\SpecializedCollections\IndexedSet.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpriteState.cs">
+          <Link>UI\Core\SpriteState.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\StencilMaterial.cs">
+          <Link>UI\Core\StencilMaterial.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Text.cs">
+          <Link>UI\Core\Text.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Toggle.cs">
+          <Link>UI\Core\Toggle.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ToggleGroup.cs">
+          <Link>UI\Core\ToggleGroup.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\ReflectionMethodsCache.cs">
+          <Link>UI\Core\Utility\ReflectionMethodsCache.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\VertexHelper.cs">
+          <Link>UI\Core\Utility\VertexHelper.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\BaseMeshEffect.cs">
+          <Link>UI\Core\VertexModifiers\BaseMeshEffect.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\IMeshModifier.cs">
+          <Link>UI\Core\VertexModifiers\IMeshModifier.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Outline.cs">
+          <Link>UI\Core\VertexModifiers\Outline.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\PositionAsUV1.cs">
+          <Link>UI\Core\VertexModifiers\PositionAsUV1.cs</Link>
+        </Compile>
+        <Compile Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Shadow.cs">
+          <Link>UI\Core\VertexModifiers\Shadow.cs</Link>
+        </Compile>
+        <Compile Include="RDG\Demo\GestureDemoBeh.cs" />
+        <Compile Include="RDG\Demo\InputKeyActionDemoBeh.cs" />
+        <Compile Include="RDG\Scripts\GesturePlatformMouse.cs" />
+        <Compile Include="RDG\Scripts\GesturePlatformTouch.cs" />
+        <Compile Include="RDG\Scripts\GestureProducerBeh.cs" />
+        <Compile Include="RDG\Scripts\GesturesSo.cs" />
+        <Compile Include="RDG\Scripts\GestureState.cs" />
+        <Compile Include="RDG\Scripts\KeyActionFilter.cs" />
+        <Compile Include="RDG\Scripts\KeyActionProducerBeh.cs" />
+        <Compile Include="RDG\Scripts\KeyActionsRegistrySo.cs" />
+        <Compile Include="RDG\Scripts\KeyActionStack.cs" />
+        <Compile Include="RDG\Scripts\KeyActionSo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include=".gitignore" />
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData.meta">
+        <Link>EventSystem\EventData.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\AxisEventData.cs.meta">
+        <Link>EventSystem\EventData\AxisEventData.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\BaseEventData.cs.meta">
+        <Link>EventSystem\EventData\BaseEventData.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\PointerEventData.cs.meta">
+        <Link>EventSystem\EventData\PointerEventData.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventHandle.cs.meta">
+        <Link>EventSystem\EventHandle.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventInterfaces.cs.meta">
+        <Link>EventSystem\EventInterfaces.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventSystem.cs.meta">
+        <Link>EventSystem\EventSystem.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTrigger.cs.meta">
+        <Link>EventSystem\EventTrigger.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTriggerType.cs.meta">
+        <Link>EventSystem\EventTriggerType.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\ExecuteEvents.cs.meta">
+        <Link>EventSystem\ExecuteEvents.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules.meta">
+        <Link>EventSystem\InputModules.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInput.cs.meta">
+        <Link>EventSystem\InputModules\BaseInput.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInputModule.cs.meta">
+        <Link>EventSystem\InputModules\BaseInputModule.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\PointerInputModule.cs.meta">
+        <Link>EventSystem\InputModules\PointerInputModule.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\StandaloneInputModule.cs.meta">
+        <Link>EventSystem\InputModules\StandaloneInputModule.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\TouchInputModule.cs.meta">
+        <Link>EventSystem\InputModules\TouchInputModule.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\MoveDirection.cs.meta">
+        <Link>EventSystem\MoveDirection.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycasterManager.cs.meta">
+        <Link>EventSystem\RaycasterManager.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters.meta">
+        <Link>EventSystem\Raycasters.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\BaseRaycaster.cs.meta">
+        <Link>EventSystem\Raycasters\BaseRaycaster.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\Physics2DRaycaster.cs.meta">
+        <Link>EventSystem\Raycasters\Physics2DRaycaster.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\PhysicsRaycaster.cs.meta">
+        <Link>EventSystem\Raycasters\PhysicsRaycaster.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycastResult.cs.meta">
+        <Link>EventSystem\RaycastResult.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIBehaviour.cs.meta">
+        <Link>EventSystem\UIBehaviour.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIElements.meta">
+        <Link>EventSystem\UIElements.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIElements\PanelEventHandler.cs.meta">
+        <Link>EventSystem\UIElements\PanelEventHandler.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIElements\PanelRaycaster.cs.meta">
+        <Link>EventSystem\UIElements\PanelRaycaster.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Animation.meta">
+        <Link>UI\Animation.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Animation\CoroutineTween.cs.meta">
+        <Link>UI\Animation\CoroutineTween.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core.meta">
+        <Link>UI\Core.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\AnimationTriggers.cs.meta">
+        <Link>UI\Core\AnimationTriggers.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Button.cs.meta">
+        <Link>UI\Core\Button.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\CanvasUpdateRegistry.cs.meta">
+        <Link>UI\Core\CanvasUpdateRegistry.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ColorBlock.cs.meta">
+        <Link>UI\Core\ColorBlock.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling.meta">
+        <Link>UI\Core\Culling.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\ClipperRegistry.cs.meta">
+        <Link>UI\Core\Culling\ClipperRegistry.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\Clipping.cs.meta">
+        <Link>UI\Core\Culling\Clipping.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\IClipRegion.cs.meta">
+        <Link>UI\Core\Culling\IClipRegion.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\RectangularVertexClipper.cs.meta">
+        <Link>UI\Core\Culling\RectangularVertexClipper.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\DefaultControls.cs.meta">
+        <Link>UI\Core\DefaultControls.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Dropdown.cs.meta">
+        <Link>UI\Core\Dropdown.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontData.cs.meta">
+        <Link>UI\Core\FontData.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontUpdateTracker.cs.meta">
+        <Link>UI\Core\FontUpdateTracker.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Graphic.cs.meta">
+        <Link>UI\Core\Graphic.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRaycaster.cs.meta">
+        <Link>UI\Core\GraphicRaycaster.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRebuildTracker.cs.meta">
+        <Link>UI\Core\GraphicRebuildTracker.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRegistry.cs.meta">
+        <Link>UI\Core\GraphicRegistry.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IGraphicEnabledDisabled.cs.meta">
+        <Link>UI\Core\IGraphicEnabledDisabled.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Image.cs.meta">
+        <Link>UI\Core\Image.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMask.cs.meta">
+        <Link>UI\Core\IMask.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMaskable.cs.meta">
+        <Link>UI\Core\IMaskable.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\InputField.cs.meta">
+        <Link>UI\Core\InputField.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout.meta">
+        <Link>UI\Core\Layout.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\AspectRatioFitter.cs.meta">
+        <Link>UI\Core\Layout\AspectRatioFitter.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs.meta">
+        <Link>UI\Core\Layout\CanvasScaler.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ContentSizeFitter.cs.meta">
+        <Link>UI\Core\Layout\ContentSizeFitter.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\GridLayoutGroup.cs.meta">
+        <Link>UI\Core\Layout\GridLayoutGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalLayoutGroup.cs.meta">
+        <Link>UI\Core\Layout\HorizontalLayoutGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs.meta">
+        <Link>UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ILayoutElement.cs.meta">
+        <Link>UI\Core\Layout\ILayoutElement.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutElement.cs.meta">
+        <Link>UI\Core\Layout\LayoutElement.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutGroup.cs.meta">
+        <Link>UI\Core\Layout\LayoutGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutRebuilder.cs.meta">
+        <Link>UI\Core\Layout\LayoutRebuilder.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutUtility.cs.meta">
+        <Link>UI\Core\Layout\LayoutUtility.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\VerticalLayoutGroup.cs.meta">
+        <Link>UI\Core\Layout\VerticalLayoutGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Mask.cs.meta">
+        <Link>UI\Core\Mask.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskableGraphic.cs.meta">
+        <Link>UI\Core\MaskableGraphic.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskUtilities.cs.meta">
+        <Link>UI\Core\MaskUtilities.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaterialModifiers.meta">
+        <Link>UI\Core\MaterialModifiers.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaterialModifiers\IMaterialModifier.cs.meta">
+        <Link>UI\Core\MaterialModifiers\IMaterialModifier.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Misc.cs.meta">
+        <Link>UI\Core\Misc.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MultipleDisplayUtilities.cs.meta">
+        <Link>UI\Core\MultipleDisplayUtilities.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Navigation.cs.meta">
+        <Link>UI\Core\Navigation.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RawImage.cs.meta">
+        <Link>UI\Core\RawImage.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RectMask2D.cs.meta">
+        <Link>UI\Core\RectMask2D.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Scrollbar.cs.meta">
+        <Link>UI\Core\Scrollbar.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ScrollRect.cs.meta">
+        <Link>UI\Core\ScrollRect.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Selectable.cs.meta">
+        <Link>UI\Core\Selectable.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SetPropertyUtility.cs.meta">
+        <Link>UI\Core\SetPropertyUtility.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Slider.cs.meta">
+        <Link>UI\Core\Slider.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpecializedCollections.meta">
+        <Link>UI\Core\SpecializedCollections.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpecializedCollections\IndexedSet.cs.meta">
+        <Link>UI\Core\SpecializedCollections\IndexedSet.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpriteState.cs.meta">
+        <Link>UI\Core\SpriteState.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\StencilMaterial.cs.meta">
+        <Link>UI\Core\StencilMaterial.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Text.cs.meta">
+        <Link>UI\Core\Text.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Toggle.cs.meta">
+        <Link>UI\Core\Toggle.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ToggleGroup.cs.meta">
+        <Link>UI\Core\ToggleGroup.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility.meta">
+        <Link>UI\Core\Utility.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\ReflectionMethodsCache.cs.meta">
+        <Link>UI\Core\Utility\ReflectionMethodsCache.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\VertexHelper.cs.meta">
+        <Link>UI\Core\Utility\VertexHelper.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers.meta">
+        <Link>UI\Core\VertexModifiers.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\BaseMeshEffect.cs.meta">
+        <Link>UI\Core\VertexModifiers\BaseMeshEffect.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\IMeshModifier.cs.meta">
+        <Link>UI\Core\VertexModifiers\IMeshModifier.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Outline.cs.meta">
+        <Link>UI\Core\VertexModifiers\Outline.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\PositionAsUV1.cs.meta">
+        <Link>UI\Core\VertexModifiers\PositionAsUV1.cs.meta</Link>
+      </Content>
+      <Content Include="C:\Program Files\Unity\2021.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Shadow.cs.meta">
+        <Link>UI\Core\VertexModifiers\Shadow.cs.meta</Link>
+      </Content>
+      <Content Include="CHANGELOG.md" />
+      <Content Include="LICENSE" />
+      <Content Include="package.json" />
+      <Content Include="RDG\Demo\DemoGestures.asset" />
+      <Content Include="RDG\Demo\DemoKeyActions.asset" />
+      <Content Include="RDG\Demo\GestureDemo.unity" />
+      <Content Include="RDG\Demo\InputKeyActionDemo.unity" />
+      <Content Include="RDG\Demo\InputKeyActionDemoBeh.cs.meta" />
+      <Content Include="README.md" />
+      <Content Include="RunDotGames.UnityInput.asmdef" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Properties" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

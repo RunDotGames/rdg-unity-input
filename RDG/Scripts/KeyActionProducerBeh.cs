@@ -6,19 +6,19 @@ namespace RDG.UnityInput {
   [AddComponentMenu("RDG/Input/Key Action Producer")]
   public class KeyActionProducerBeh : MonoBehaviour {
 
-    public KeyActionsSo keyBindings;
-    private Dictionary<KeyAction, KeyActionBinding> actionMap;
+    public KeyActionsRegistrySo keyBindings;
+    private Dictionary<int, KeyActionBinding> actionMap;
 
     public void Start() {
-      actionMap = new Dictionary<KeyAction, KeyActionBinding>();
-      foreach (var binding in keyBindings.bindings) {
-        if (binding.key == KeyCode.None && binding.action == KeyAction.None) { // Actions must have input
+      actionMap = new Dictionary<int, KeyActionBinding>();
+      foreach (var binding in keyBindings.registeredBindings) {
+        if (binding.key == KeyCode.None && binding.mouseButton == MouseButton.None) { // Actions must have input trigger
           continue;
         }
-        if (binding.action == KeyAction.None) { // None may not be bound
+        if (binding.action == null) { // binding must have action
           continue;
         }
-        actionMap[binding.action] = binding;
+        actionMap[binding.action.GetHashCode()] = binding;
       }
     }
 
@@ -38,8 +38,8 @@ namespace RDG.UnityInput {
       }
     }
 
-    private bool IsActionDown(KeyAction action) {
-      if (!actionMap.TryGetValue(action, out var binding)) {
+    private bool IsActionDown(KeyActionSo action) {
+      if (!actionMap.TryGetValue(action.GetHashCode(), out var binding)) {
         return false;
       }
 
@@ -50,8 +50,8 @@ namespace RDG.UnityInput {
       return binding.mouseButton != MouseButton.None && Input.GetMouseButtonDown((int)binding.mouseButton);
     }
 
-    private bool IsActionUp(KeyAction action) {
-      if (!actionMap.TryGetValue(action, out var binding)) {
+    private bool IsActionUp(KeyActionSo action) {
+      if (!actionMap.TryGetValue(action.GetHashCode(), out var binding)) {
         return false;
       }
 

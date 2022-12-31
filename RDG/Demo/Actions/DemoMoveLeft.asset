@@ -9,19 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c240e36972cb5de41b9c791afb5b2bde, type: 3}
-  m_Name: DemoKeyActions
+  m_Script: {fileID: 11500000, guid: 5864d29903c03e9439e24cdc936ce870, type: 3}
+  m_Name: DemoMoveLeft
   m_EditorClassIdentifier: 
-  bindings:
-  - action: 0
-    key: 97
-    mouseButton: -1
-  - action: 1
-    key: 100
-    mouseButton: -1
-  - action: 4
-    key: 0
-    mouseButton: 0
-  - action: 5
-    key: 0
-    mouseButton: 1
