@@ -22,9 +22,3 @@ MonoBehaviour:
   - action: {fileID: 11400000, guid: c1c96acc7fbc0ae4cbd4143633c5b54f, type: 2}
     key: 100
     mouseButton: -1
-  - action: {fileID: 11400000, guid: bcb7fce68816c4e41ba005e7ab1fa28f, type: 2}
-    key: 119
-    mouseButton: -1
-  - action: {fileID: 11400000, guid: a26cb0bbdc2031f45807cc1a234b00fc, type: 2}
-    key: 115
-    mouseButton: -1

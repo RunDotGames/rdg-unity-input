@@ -9,7 +9,7 @@ namespace RDG.UnityInput {
     public KeyActionsRegistrySo keyBindings;
     private Dictionary<int, KeyActionBinding> actionMap;
 
-    public void Start() {
+    public void Awake() {
       actionMap = new Dictionary<int, KeyActionBinding>();
       foreach (var binding in keyBindings.registeredBindings) {
         if (binding.key == KeyCode.None && binding.mouseButton == MouseButton.None) { // Actions must have input trigger

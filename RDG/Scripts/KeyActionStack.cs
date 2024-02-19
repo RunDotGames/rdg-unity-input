@@ -63,8 +63,9 @@ namespace RDG.UnityInput {
       StackSize = 0;
       foreach (var value in keys) {
         var keyEvent = new InputPressEvent(value);
+        var hash = value.GetHashCode();
         events.Add(keyEvent);
-        eventMap[value.GetHashCode()] = keyEvent;
+        eventMap[hash] = keyEvent;
       }
       
     }
@@ -113,10 +114,7 @@ namespace RDG.UnityInput {
         return;
       }
       
-      OnStackChange?.Invoke(new State(){
-        Size = currentSize,
-        Top = currentTop
-      });
+      OnStackChange?.Invoke(MakeState());
       if (priorTop != currentTop) {
         OnStackTopChange?.Invoke(currentTop);
       }
@@ -124,6 +122,13 @@ namespace RDG.UnityInput {
         OnStackSizeChange?.Invoke(StackSize);
       }
 
+    }
+
+    public State MakeState() {
+      return new State(){
+        Size = StackSize,
+        Top = GetTop()
+      };
     }
 
     public KeyActionSo GetTop() {

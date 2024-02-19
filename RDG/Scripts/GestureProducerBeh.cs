@@ -26,7 +26,7 @@ namespace RDG.UnityInput {
     
     public GestureState State { get; private set; }
 
-    public void Start() {
+    public void Awake() {
       currentAction = GestureAction.Idle;
       State = new GestureState(){
         Zoom = new GestureZoomState(),

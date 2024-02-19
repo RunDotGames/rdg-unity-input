@@ -294,6 +294,9 @@
         </Compile>
         <Compile Include="RDG\Demo\GestureDemoBeh.cs" />
         <Compile Include="RDG\Demo\InputKeyActionDemoBeh.cs" />
+        <Compile Include="RDG\Scripts\KeyActionAxisBeh.cs" />
+        <Compile Include="RDG\Scripts\KeyActionFireInputBeh.cs" />
+        <Compile Include="RDG\Scripts\KeyActionFlagInputBeh.cs" />
         <Compile Include="RDG\Scripts\GesturePlatformMouse.cs" />
         <Compile Include="RDG\Scripts\GesturePlatformTouch.cs" />
         <Compile Include="RDG\Scripts\GestureProducerBeh.cs" />
