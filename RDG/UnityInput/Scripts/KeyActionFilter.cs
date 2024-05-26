@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace RDG.UnityInput {
   public class KeyActionFilter {
@@ -13,9 +14,9 @@ namespace RDG.UnityInput {
     
     public KeyActionFilter(KeyActionsRegistrySo bindings, IEnumerable<KeyActionSo> allow) {
       this.bindings = bindings;
+      allowSet = new HashSet<int>(allow.Select(a => a.GetHashCode()));
       bindings.OnDown += HandleDown;
       bindings.OnUp += HandleUp;
-      allowSet = new HashSet<int>(allow.Select(a => a.GetHashCode()));
     }
     
     public void Release() {

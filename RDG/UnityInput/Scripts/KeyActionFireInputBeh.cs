@@ -16,6 +16,11 @@ namespace RDG.UnityInput {
     private KeyActionFilter filter;
     
     public void Awake() {
+      if (action == null || keyActions == null) {
+        Debug.LogWarning($"{gameObject.name}'s key action fire input has missing key action data, will not fire");
+        return;
+      }
+      
       filter = new KeyActionFilter(keyActions, new []{ action });
       filter.OnDown += (_) => {
         if (!isActiveAndEnabled) {
